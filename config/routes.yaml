@@ -1,0 +1,4 @@
+#homepage:
+#    path: /homepage
+#    controller: App\Controller\ArticleController::homepage
+

@@ -22,9 +22,26 @@ class ArticleController extends AbstractController
      */
     public function show($slug){
 
-        return new Response(sprintf(
-            'Future page of news: %s',
-            $slug
-        ));
+     $comments = [
+         'coment 1',
+         'coment 2',
+         'coment 3'
+     ];
+
+    return $this->render('article/show.html.twig', [
+        'title' => ucwords(str_replace('-', '', $slug)),
+        'comments' => $comments,
+    ]);
     }
 }
+
+///**
+// * @Route("/news/{slug}")
+// */
+//public function show($slug){
+//
+//    return new Response(sprintf(
+//        'Future page of news: %s',
+//        $slug
+//    ));
+//}

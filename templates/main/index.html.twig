@@ -3,19 +3,40 @@
 {% block title %}Hello MainController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{{ include('include/header.html.twig') }}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1 align="center">Main page for crud table</h1>
+    {% if articles %}
+        <div class="container">
+            <div class="row">
+                <table id="articles_table" class="table table-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Show</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    <tbody>
+                    {% for article in articles %}
+                        <tr>
+                            <td>{{ article.title }}</td>
+                            <td><a href="/article/{{ article.id }}" class="btn btn-dark">Show</a></td>
+                            <td><a href="/article/edit/{{ article.id }}" class="btn btn-info">Edit</a></td>
+                            <td><a href="" class="btn btn-danger article-delete" data-id="{{ article.id }}">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% else %}
+<p>No Articles to show</p>
+    {% endif %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/symfonytest/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/symfonytest/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
-    <a href="/homepage">homepage/ArticleController</a><br>
-</div>
+    {{ include('include/footer.html.twig') }}
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/delete.js') }}"></script>
 {% endblock %}

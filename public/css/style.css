@@ -1,0 +1,16 @@
+.rr{
+    background:greenyellow;
+    color:blue;
+}
+
+.like{
+    width:30px;
+    height:30px;
+    background: hotpink;
+}
+#footer{
+    position:fixed;
+    bottom:0;
+    height:100px;
+    width:100%;
+}

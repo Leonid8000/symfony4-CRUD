@@ -1,13 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Read {{ title }} {% endblock %}
+{% block title %}Show{% endblock %}
 
 {% block body %}
-    <h1> {{ title }}</h1>
-<h2>Comments | {{ comments|length }}</h2>
-<ul>
-{% for comment in comments %}
-    <li>{{ comment }}</li>
-{% endfor %}
-</ul>
+
+
+    <h1>{{ articles.title }}</h1>
+    <p>{{ articles.body }}</p>
+    {#{{ dump() }}#}
+{#<h2>Comments | {{ comments|length }}</h2>#}
+
+<a href="{{ path('homepage') }}">
+    <button class="ml-2">Back home</button>
+</a>
 {% endblock %}
+
+{#{% block javascripts %}#}
+   {#{{ parent() }}#}
+{#<script src="{{ asset('js/article.js') }}"></script>#}
+{#{% endblock %}#}

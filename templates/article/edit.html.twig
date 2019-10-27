@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit{% endblock %}
+
+{% block body %}
+    <h1 align="center">Create Article</h1>
+    <div class="container">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+
+    <a href="{{ path('homepage') }}">
+        <button class="ml-2">Back home</button>
+    </a>
+{% endblock %}
